@@ -16,4 +16,23 @@ variable "app_name" {
   default     = "dg-scoreboard"
 }
 
-variable "environment" {}
+variable "github_cicd_issuer_url" {
+  description = "The OIDC issuer URL for GitHub Actions"
+  type        = string
+  default     = "https://token.actions.githubusercontent.com"
+}
+
+variable "environment" {
+  description = "Deployment environment"
+  type        = string
+}
+
+variable "github_cicd_client_id" {
+  description = "The expected audience claim in the OIDC token"
+  type        = string
+}
+
+variable "github_cicd_repos_with_env" {
+  description = "Whitelist of GitHub repositories and environments allowed to assume the role"
+  type        = list(string)
+}
